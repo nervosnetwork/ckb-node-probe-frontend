@@ -79,6 +79,8 @@ const Map: React.FC<MapProps> = ({ data }) => {
         setPendingStatus(false)
         console.log('API Response:', nodeInMap); // Debug log
         if(nodeInMap && nodeInMap['in_map']) {
+            // Clear any previous "node not visible" notification.
+            setErrorType(-1);
             // Mark the node on the map
             if (nodeInMap.info && nodeInMap.info.latitude && nodeInMap.info.longitude) {
                 const nodeInfo = {

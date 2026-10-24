@@ -1,3 +1,6 @@
+import { fixAntimeridian } from './fixAntimeridian';
+import { feature } from 'topojson-client';
+import worldAtlas from 'world-atlas/countries-110m.json';
 import { Data } from '@/interface/page';
 import { isMobileDevice } from '@/app/utils';
 
@@ -281,9 +284,43 @@ export function renderMapGraph(data: Data[]) {
       ],
     }).setView([0, 0], isMobileDevice() ? 1 : 2);
     _window._map = map;
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-      minZoom: 2,
-    }).addTo(map);
+    // Natural Earth: self-contained geographic data, no API key required.
+    map.getContainer().style.backgroundColor = '#101820';
+
+    const countries = feature(
+      worldAtlas as any,
+      worldAtlas.objects.countries as any
+    );
+
+    // Render country shapes behind the node heatmap.
+    map.createPane('naturalEarth');
+    map.getPane('naturalEarth').style.zIndex = '200';
+
+    // Exclude Antarctica while preserving all other countries.
+    const landWithoutAntarctica = {
+      ...countries,
+      features: (countries as any).features.filter(
+        (country: any) => country.id !== '010'
+      ),
+    };
+
+    // Split polygons crossing the International Date Line.
+    const correctedCountries = fixAntimeridian(landWithoutAntarctica);
+
+    const naturalEarthLayer = L.geoJSON(correctedCountries, {
+      pane: 'naturalEarth',
+      renderer: L.canvas({ padding: 0.5 }),
+      style: {
+        fillColor: '#1c2b30',
+        fillOpacity: 1,
+        color: '#405157',
+        weight: 0.6,
+        opacity: 0.8,
+      },
+      interactive: false,
+    });
+    // Temporarily disabled to diagnose rendering artifacts.
+    naturalEarthLayer.addTo(map);
   }
 
   if (!data.length) return;
@@ -307,6 +344,8 @@ export function renderMapGraph(data: Data[]) {
   });
 
   L.heatLayer(heatMapData, { radius: 15 }).addTo(map);
+
+
 
   // if (isMobileDevice()) {
   //   const moveControl = L.control();

@@ -23,16 +23,20 @@
     "mdx.macro": "^0.2.9",
     "next": "^13.4.3",
     "next-mdx-remote": "^4.4.1",
+    "polygon-clipping": "^0.15.7",
     "prismjs": "^1.29.0",
     "react": "18.2.0",
     "react-countup": "^6.4.2",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.7",
     "sass": "^1.62.1",
-    "typescript": "5.0.4"
+    "topojson-client": "^3.1.0",
+    "typescript": "5.0.4",
+    "world-atlas": "^2.0.2"
   },
   "devDependencies": {
-    "@types/prismjs": "^1.26.0"
+    "@types/prismjs": "^1.26.0",
+    "@types/topojson-client": "^3.1.5"
   },
   "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }
