@@ -22,7 +22,7 @@
     "html-react-parser": "^4.0.0",
     "mdx.macro": "^0.2.9",
     "next": "^13.4.3",
-    "next-mdx-remote": "^4.4.1",
+    "next-mdx-remote": "^6.0.0",
     "polygon-clipping": "^0.15.7",
     "prismjs": "^1.29.0",
     "react": "18.2.0",
