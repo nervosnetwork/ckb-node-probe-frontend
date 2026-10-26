@@ -1,17 +1,17 @@
-<MarginContainer top={3.06} />
+<MarginContainer top="3.06" />
 
 # Become Discoverable by CKB Node Probe
-<MarginContainer top={2} />
+<MarginContainer top="2" />
 
 <Tips 
-  text={"Make sure your internet connection and firewall settings allow for external connections to your node. We strongly recommend using [CKB v0.202.0](https://github.com/nervosnetwork/ckb/releases/tag/v0.202.0) or later to take advantage of the `HolePunching` protocol. This improves node discoverability — especially if your node is running behind [NAT](https://en.wikipedia.org/wiki/Network_address_translation). We'll walk you through how to confirm this setting in **Step 3** of the instructions."}
-  type={"normal"} 
+  text="Make sure your internet connection and firewall settings allow for external connections to your node. We strongly recommend using [CKB v0.202.0](https://github.com/nervosnetwork/ckb/releases/tag/v0.202.0) or later to take advantage of the `HolePunching` protocol. This improves node discoverability — especially if your node is running behind [NAT](https://en.wikipedia.org/wiki/Network_address_translation). We&#x27;ll walk you through how to confirm this setting in **Step 3** of the instructions."
+  type="normal" 
 />
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Step 1: Locate CKB folder
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 ---
 #### For Neuron
@@ -21,11 +21,11 @@ In the Neuron wallet, go to **Settings** -> **Data** -> **CKB Node Config & Stor
 Find the installation folder of your CKB mainnet node.
 
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Step 2: Pause your node
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 ---
 #### For Neuron
@@ -34,17 +34,17 @@ Completely close the Neuron wallet. Ensure it's not running in the background.
 #### For CKB mainnet node
 Pause the running node.
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Step 3: Configure `ckb.toml` file
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 ---
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 1. In the CKB folder(from step 1), locate and open the `ckb.toml` file.
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 2. Scroll down to the **[network]** section, add the following bootnode entry:
 
@@ -52,29 +52,29 @@ Pause the running node.
 # Observer
 "/dns4/nodeprobe.ckb.guide/tcp/8124/p2p/QmPHzhEzekyjB14eQsnsVRxmymtYmAyntcfJgVYRiUq4Lb",
 ```
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 3. Review and edit the bootnodes list, keeping a maximum of **3** closest to your location. Here's an example:
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
-<img src="/network.png" alt="network" style={{width: 750, border: '1px solid #6CE37C', padding: '12px 12px', borderRadius:12}} />
+<img src="/network.png" alt="network" className="guide-config-image" />
 
 4. Scroll down to **whitelist_peers**, remove the **#** in front, and add the same bootnode entry:
 
 ```bash
 "/dns4/nodeprobe.ckb.guide/tcp/8124/p2p/QmPHzhEzekyjB14eQsnsVRxmymtYmAyntcfJgVYRiUq4Lb"
 ```
-<img src="/whitelist.png" alt="network" style={{width: 750, border: '1px solid #6CE37C', padding: '12px 12px', borderRadius:12}} />
+<img src="/whitelist.png" alt="network" className="guide-config-image" />
 
 
 5. Scroll down to **max_outbound_peers** and change its value to **20**.
 
-<img src="/maxpeer.png" alt="network" style={{width: 750, border: '1px solid #6CE37C', padding: '12px 12px', borderRadius:12}} />
+<img src="/maxpeer.png" alt="network" className="guide-config-image" />
 
 6. Scroll down to **support_protocols** and make sure the `HolePunching` protocol is included in the list.
 
-<img src="/holepunching.png" alt="network" style={{width: 750, border: '1px solid #6CE37C', padding: '12px 12px', borderRadius:12}} />
+<img src="/holepunching.png" alt="network" className="guide-config-image" />
 
 The `HolePunching` protocol helps nodes behind [NAT](https://en.wikipedia.org/wiki/Network_address_translation) become publicly accessible — significantly improving peer connectivity.
 
@@ -83,36 +83,36 @@ The `HolePunching` protocol helps nodes behind [NAT](https://en.wikipedia.org/wi
 
 7. Save your changes to the **ckb.toml** file.
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Step 4: Delete `peer_store` folder
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 ---
 Within the same CKB folder, navigate to **data** -> **network** and delete the `peer_store` folder.
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Step 5: Restart your CKB node
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 ---
 Re-open the Neuron wallet or reactivate your CKB node to apply the new configurations and ensure your node becomes discoverable by the CKB Node Probe.
 
-<MarginContainer top={2} />
+<MarginContainer top="2" />
 
 <TipsArea type="note" text="If you're on a VPN, your node will show up on the map where your VPN is, not your actual location." />
 
 
-<MarginContainer top={4} />
+<MarginContainer top="4" />
 
 
 
 ## Verfication
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 To verify the connection to the observer node, paste following command in your web browser's address bar and hit enter:
 ```html
@@ -121,15 +121,15 @@ data:text/html,
   fetch("http://127.0.0.1:8114", {method: "POST", headers:{"Content-Type": "application/json"}, body: '{"id":0,"jsonrpc":"2.0","method":"get_peers","params":[]}'}).then(response => response.json()).then(response => document.write(JSON.stringify(response)));
 </script>
 ```
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 Check whether `QmPHzhEzekyjB14eQsnsVRxmymtYmAyntcfJgVYRiUq4Lb` is one of your peer nodes.
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Support
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 If you encounter any issues or need further assistance, don’t hesitate to reach out at [ckb-node-probe@cryptape.com](ckb-node-probe@cryptape.com).
 
-<MarginContainer bottom={3} />
+<MarginContainer bottom="3" />
