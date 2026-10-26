@@ -282,7 +282,7 @@ export function renderMapGraph(data: Data[]) {
     }).setView([0, 0], isMobileDevice() ? 1 : 2);
     _window._map = map;
     L.tileLayer(
-      `https://basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png?api_key=${encodeURIComponent(process.env.NEXT_PUBLIC_CARTO_API_KEY || '')}`,
+      `https://basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png?key=${encodeURIComponent(process.env.NEXT_PUBLIC_CARTO_API_KEY || '')}`,
       {
         minZoom: 2,
         attribution:
