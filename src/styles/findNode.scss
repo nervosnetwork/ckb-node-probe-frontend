@@ -98,3 +98,16 @@ details[open] > summary::before {
     padding: 0 2rem;
   }
 }
+
+.markdown-wrapper {
+  .guide-extra-label {
+    color: #F1403F;
+  }
+
+  .guide-config-image {
+    width: 750px;
+    border: 1px solid #6CE37C;
+    padding: 12px;
+    border-radius: 12px;
+  }
+}

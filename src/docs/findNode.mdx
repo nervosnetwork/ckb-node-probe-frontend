@@ -1,31 +1,31 @@
-<MarginContainer top={3.06} />
+<MarginContainer top="3.06" />
 
 # Find Your CKB Node ID
-<MarginContainer top={2} />
+<MarginContainer top="2" />
 
-<Tips text={"This guide will help you find your CKB Node ID when your **CKB node or Neuron is up and running**."} type={"normal"} />
+<Tips text="This guide will help you find your CKB Node ID when your **CKB node or Neuron is up and running**." type="normal" />
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 If you have changed the default RPC address `http://localhost:8114/` in your CKB [node configuration](#extra-check-your-node-configuration), make sure to replace it in the methods below.
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ### Method 1:
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 Make sure your node is up and running before you proceed
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 <GetRequestInfo />
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 ### Method 2:
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 In the address bar of your browser, paste in the below text, and hit enter:
 ```html
@@ -37,15 +37,15 @@ data:text/html,
 </script>
 ```
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 ### Method 3:
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 In a new Terminal (on MacOS/Linux) or Command Prompt (on Windows) window, send an [RPC request](https://github.com/nervosnetwork/ckb/tree/develop/rpc#method-local_node_info) to your node to retrieve its ID. This ID uniquely identifies your node in the network.
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 <details>
     <summary>For MacOS and Linux:</summary>
@@ -61,7 +61,7 @@ curl -X "POST" "http://localhost:8114/" \
     ```
 </details>
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 <details>
     <summary>For Windows:</summary>
@@ -77,26 +77,26 @@ curl -X "POST" "http://localhost:8114/" \
     ```
 </details>
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Interpret the Response
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 ---
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 After sending the request, the terminal will display a response containing detailed information about your CKB node.
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 The response should look something like this:
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 ```javascript
 {
@@ -120,51 +120,51 @@ The response should look something like this:
 }
 ```
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 In this response, the `node_id` field provides your Node ID. In this example, the Node ID is `QmdRWNKZ8EVJxhrDusbyYoYaGCQdStB4fSDotis7czUs`. You can either note down the Node ID or keep the entire output.
 
 
-<MarginContainer top={4} />
+<MarginContainer top="4" />
 
-# <span style={{color: "#F1403F"}}>Extra:</span> Check Your Node Configuration
+# <span className="guide-extra-label">Extra:</span> Check Your Node Configuration
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 <Tips type="note" text="If you're unsure about your RPC address, follow the steps below to verify it:" />
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 ### For Neuron:
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 Check your RPC address under Settings -> Network
 
-<MarginContainer top={2} />
+<MarginContainer top="2" />
 
 ### For CKB mainnet node:
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 ## Step 1: Access your CKB Node directory
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 ---
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 
 Open a new Terminal (on MacOS/Linux) or Command Prompt (on Windows) window and navigate to your CKB node directory. Below is an example; you'll need to replace the path after `cd` with your actual pathname:
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 ```bash
 cd <Your Node Path Name>
 ```
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 <details>
     <summary>For MacOS</summary>
@@ -173,7 +173,7 @@ cd <Your Node Path Name>
     ```
 </details>
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 <details>
     <summary>For Linux:</summary>
@@ -187,7 +187,7 @@ cd <Your Node Path Name>
     ```
 </details>
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 <details>
     <summary>For Windows:</summary>
@@ -196,43 +196,43 @@ cd <Your Node Path Name>
     ```
 </details>
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Step 2: Locate Your `ckb.toml` Configuration File
 
-<MarginContainer top={0.5} />
+<MarginContainer top="0.5" />
 
 ---
 In your CKB node directory, there is a file called `ckb.toml` that stores the node configuration. Open it using the following command:
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 ```bash
 vi ckb.toml
 ```
 
-<MarginContainer top={2.5} />
+<MarginContainer top="2.5" />
 
 ## Step 3: Find the RPC Listening Address
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 ---
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 Within the `ckb.toml` file, find the `listening_address` under the `[rpc]` section. This is the address your node uses to listen for RPC requests.
 
 For example, if you see:
 
-<MarginContainer top={1} />
+<MarginContainer top="1" />
 
 ```bash
 listen_address = "127.0.0.1:8114"
 ```
 
-<MarginContainer top={1.5} />
+<MarginContainer top="1.5" />
 
 This means your node is listening for RPC requests at `http://localhost:8114/`. Make sure to use this address while retrieving your Node ID.
 
-<MarginContainer bottom={3} />
+<MarginContainer bottom="3" />

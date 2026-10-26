@@ -1,10 +1,10 @@
 import React from 'react';
 
 interface MarginContainerProps {
-    top?: number;
-    right?: number;
-    bottom?: number;
-    left?: number;
+    top?: number | string;
+    right?: number | string;
+    bottom?: number | string;
+    left?: number | string;
     children: React.ReactNode;
 }
 
